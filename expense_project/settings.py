@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+import os
+import urllib.parse  
+import dj_database_url
 from pathlib import Path
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -70,12 +74,9 @@ TEMPLATES = [
 WSGI_APPLICATION = 'expense_project.wsgi.application'
 
 
-# 1. നിങ്ങളുടെ പാസ്‌വേഡ് എൻകോഡ് ചെയ്യുന്നു
+
 raw_password = "chemmimanaf1991"
 encoded_password = urllib.parse.quote_plus(raw_password)
-
-# 2. ഡയറക്ട് കണക്ഷൻ സ്ട്രിംഗ് (Port 5432)
-# ഇതാണ് വെർസലിൽ ഏറ്റവും നന്നായി വർക്ക് ചെയ്യുന്നത്
 DATABASE_URL = f"postgresql://postgres:{encoded_password}@db.bcwjavxozbvxwiuuovcs.supabase.co:5432/postgres"
 
 DATABASES = {
