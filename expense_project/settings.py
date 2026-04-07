@@ -74,14 +74,10 @@ TEMPLATES = [
 WSGI_APPLICATION = 'expense_project.wsgi.application'
 
 
-
-# 1. പാസ്‌വേഡ് എൻകോഡ് ചെയ്യുന്നു
 raw_password = "chemmimanaf1991"
 encoded_password = urllib.parse.quote_plus(raw_password)
 
-# 2. Connection String (Port 6543 and supavisor_session_id=all)
-# ഇത് IPv4 കണക്ഷൻ ഉറപ്പാക്കും
-DATABASE_URL = f"postgresql://postgres.bcwjavxozbvxwiuuovcs:{encoded_password}@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require&supavisor_session_id=all"
+DATABASE_URL = f"postgresql://postgres.bcwjavxozbvxwiuuovcs:{encoded_password}@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require"
 
 DATABASES = {
     'default': dj_database_url.config(
