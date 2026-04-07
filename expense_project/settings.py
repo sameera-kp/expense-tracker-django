@@ -69,16 +69,14 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'expense_project.wsgi.application'
 
-import dj_database_url
-import os
-import urllib.parse
 
-# 1. Puthiya password (symbol illathathu)
+# 1. നിങ്ങളുടെ പാസ്‌വേഡ് എൻകോഡ് ചെയ്യുന്നു
 raw_password = "chemmimanaf1991"
 encoded_password = urllib.parse.quote_plus(raw_password)
 
-# 2. Connection String (Port 6543 and correct username)
-DATABASE_URL = f"postgresql://postgres.bcwjavxozbvxwiuuovcs:{encoded_password}@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require"
+# 2. ഡയറക്ട് കണക്ഷൻ സ്ട്രിംഗ് (Port 5432)
+# ഇതാണ് വെർസലിൽ ഏറ്റവും നന്നായി വർക്ക് ചെയ്യുന്നത്
+DATABASE_URL = f"postgresql://postgres:{encoded_password}@db.bcwjavxozbvxwiuuovcs.supabase.co:5432/postgres"
 
 DATABASES = {
     'default': dj_database_url.config(
