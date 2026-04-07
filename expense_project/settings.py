@@ -69,18 +69,23 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'expense_project.wsgi.application'
 
+import dj_database_url
+import os
+import urllib.parse
 
-# Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
+# 1. Puthiya password (symbol illathathu)
+raw_password = "chemmimanaf1991"
+encoded_password = urllib.parse.quote_plus(raw_password)
+
+# 2. Connection String (Port 6543 and correct username)
+DATABASE_URL = f"postgresql://postgres.bcwjavxozbvxwiuuovcs:{encoded_password}@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require"
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=DATABASE_URL,
+        conn_max_age=600
+    )
 }
-
-
 # Password validation
 # https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
