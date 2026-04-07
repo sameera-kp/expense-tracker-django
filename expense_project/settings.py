@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
+
 import dj_database_url
 import os
 import urllib.parse
@@ -73,10 +74,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'expense_project.wsgi.application'
 
 
-aw_password = "chemmimanaf1991"
+
+raw_password = "chemmimanaf1991"
 encoded_password = urllib.parse.quote_plus(raw_password)
 
-DATABASE_URL = f"postgresql://postgres.bcwjavxozbvxwiuuovcs:{encoded_password}@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require"
+DATABASE_URL = f"postgresql://postgres.bcwjavxozbvxwiuuovcs:{encoded_password}@aws-1-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require"
 
 DATABASES = {
     'default': dj_database_url.config(
