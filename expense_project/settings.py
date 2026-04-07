@@ -10,10 +10,9 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
-import os
-import urllib.parse  
 import dj_database_url
-from pathlib import Path
+import os
+import urllib.parse
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -74,7 +73,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'expense_project.wsgi.application'
 
 
-raw_password = "chemmimanaf1991"
+aw_password = "chemmimanaf1991"
 encoded_password = urllib.parse.quote_plus(raw_password)
 
 DATABASE_URL = f"postgresql://postgres.bcwjavxozbvxwiuuovcs:{encoded_password}@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?sslmode=require"
